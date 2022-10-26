@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông báo</title>
+</head>
+<body>
+<h1>Đăng kí thành công</h1>
+<p>
+    <a href="/index">Danh sách người dùng</a>
+    <br>
+    <a href="/create">Thêm mới người dùng</a>
+</p>
+<p>Họ:</p>
+<p>
+    <a th:text="${user.firstName}"></a>
+</p>
+<p>Tên:</p>
+<p>
+    <a th:text="${user.lastName}"></a>
+</p>
+<p>Di động</p>:</p>
+<p>
+    <a th:text="${user.phoneNumber}"></a>
+</p>
+<p>Tuổi:</p>
+<p>
+    <a th:text="${user.age}"></a>
+</p>
+<p>Email:</p>
+<p>
+    <a th:text="${user.email}"></a>
+</p>
+</body>
+</html>

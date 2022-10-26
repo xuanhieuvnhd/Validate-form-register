@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chủ</title>
+</head>
+<body>
+<h3>Thông tin người dùng</h3>
+<br>
+<br>
+<div>
+    <a href="/create">Thêm người dùng mới</a>
+</div>
+<br>
+<table border="1" style="width: 100%">
+    <tr>
+        <th>Mã số</th>
+        <th>Họ</th>
+        <th>Tên</th>
+        <th>Di động</th>
+        <th>Tuổi</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="u : ${users}">
+        <td th:text="${u.getId()}"></td>
+        <td th:text="${u.getFirstName()}"></td>
+        <td th:text="${u.getLastName()}"></td>
+        <td th:text="${u.getPhoneNumber()}"></td>
+        <td th:text="${u.getAge()}"></td>
+        <td th:text="${u.getEmail()}"></td>
+    </tr>
+</table>
+<div>
+    <a th:href="@{/users(page=${users.number - 1},size=1)}" th:if="${users.hasPrevious()}">Trang trước</a>
+    <span th:text="${users.number+1}"></span>/<span th:text="${users.totalPages}"></span>
+    <a th:href="@{/users(page=${users.number +1}),size=1}" th:if="${users.hasNext()}">Trang sau</a>
+</div>
+</body>
+</html>
